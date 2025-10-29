@@ -22,8 +22,6 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const data = await fetch("https://jsonplaceholder.typicode.com/posts");
-
   return (
     <html lang="en">
       <body
