@@ -1,5 +1,3 @@
-"use cache";
-
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -24,12 +22,15 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const data = await fetch("https://jsonplaceholder.typicode.com/posts");
+
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
+        <pre>{JSON.stringify(data, null, 2)}</pre>
       </body>
     </html>
   );
